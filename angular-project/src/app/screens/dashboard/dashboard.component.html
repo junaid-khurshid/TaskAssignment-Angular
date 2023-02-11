@@ -1,0 +1,95 @@
+<div class="row" *ngIf="!success">
+    <form [formGroup]="serviceForm">
+
+        <div class="row">
+            <div class="col-12 mt-2">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" placeholder="name" formControlName="name">
+                    <div *ngIf="submitted">
+                        <div class="validation" *ngIf="serviceForm.get('name').invalid">
+                            Name is invalid
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Date of birth</label>
+                    <div class="input-group mb-3">
+                        <input class="form-control" formControlName="dob" placeholder="date of birth" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div *ngIf="submitted">
+                            <div class="validation" *ngIf="serviceForm.get('dob').invalid">
+                                Date of birth is invalid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Number</label>
+                    <div class="input-group mb-3">
+                        <input class="form-control" formControlName="number" placeholder="number" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div *ngIf="submitted">
+                            <div class="validation" *ngIf="serviceForm.get('number').invalid">
+                                Number is invalid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Service</label>
+                    <div class="input-group mb-3">
+                        <input class="form-control" formControlName="service" placeholder="service" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <div *ngIf="submitted">
+                            <div class="validation" *ngIf="serviceForm.get('service').invalid">
+                                Service is invalid
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-right b-4 mt-4">
+            <button type="submit" (click)="submit()" class="button-86">Submit</button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="success">
+    <form>
+
+        <div class="row" *ngFor="let dataItem of data">
+            <div class="col-12 mt-2">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" [placeholder]="dataItem.name" readonly>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Date of birth</label>
+                    <input type="text" class="form-control" [placeholder]="dataItem.dob" readonly>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Number</label>
+                    <input type="text" class="form-control" [placeholder]="dataItem.number" readonly>
+                </div>
+            </div>
+            <div class="col-12" style="margin-top: 20px">
+                <div class="form-group">
+                    <label>Service</label>
+                    <input type="text" class="form-control" [placeholder]="dataItem.service" readonly>
+                </div>
+            </div>
+        </div>
+    </form>
+    <button type="submit" (click)="home()" class="button-86">Back</button>
+
+</div>
